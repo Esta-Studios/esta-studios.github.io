@@ -1,23 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Esta Studios Launches New AI Division",
-    "date": "2023-10-24",
-    "brief": "We are expanding our horizons with a dedicated team for Neural Networks.",
-    "content": "Today marks a significant milestone for Esta Studios. We have officially opened our AI & ANN division, focusing on generative models and predictive analytics. This team will support all internal startups."
+    "title": "Esta Studios: beginning",
+    "date": "2025 August 28",
+    "brief": "The journey begins! Esta Studios is officially founded by two ambitious ONPU students with a vision to revolutionize the IT startup ecosystem.",
+    "content": "Today marks the formation of <b>Esta Studios</b>.<br> Founded by <b>Ivan Pecherskyi</b> (Leader and Technical Developer) and <b>Alisa Mishuk</b> (M&S and Project Lead), our company's goal is ambitious: to create and gather all possible innovative or useful startups across the entire IT spectrum, from low-level infrastructure to complex AI and ANN problem-solving.<br> While we realize this grand vision is a long-term goal, we are starting today with determination, leveraging our combined technical and business expertise."
   },
   {
     "id": 2,
-    "title": "Tech Conference 2024",
-    "date": "2023-11-01",
-    "brief": "Join us at the upcoming Innovate 2024 conference in Berlin.",
-    "content": "Our CEO will be speaking about the future of low-level optimization in high-level applications. Come visit our booth to see demos of GameConnectAI."
+    "title": "Project in production",
+    "date": "2025 September 14",
+    "brief": "Our first startup moves into the production phase. The team is working on idea optimization.",
+    "content": "Just two weeks after launch, we are excited to announce that our first startup has officially entered the production phase. This project will focus on optimizing AI integration processes for small and medium-sized game studios. Details will be shared in the coming weeks as we refine our approach and prepare for a broader rollout."
   },
   {
     "id": 3,
-    "title": "Quarterly Report",
-    "date": "2023-12-15",
-    "brief": "Our Q4 results show promising growth across all sectors.",
-    "content": "Despite market volatility, Esta Studios has secured Series A funding for two of our major projects. We are grateful for our partners and investors."
+    "title": "GameConnectAI: In development",
+    "date": "2025 November 29",
+    "brief": "We are proud to announce the detailed architecture and business model for GameConnectAI, confirming it will be the most affordable and fastest AI integration service for the game industry.",
+    "content": "Building upon our commitment to AI optimization for game studios, we can now reveal the full scope of <b>GameConnectAI</b>. We designed this specialized <b>AI integration service</b> to be faster than developing solutions in-house and significantly cheaper than using large enterprise providers.<br>The technical foundation is a unique three-layer system:<br>- The core AI Orchestrator (request handling)<br>-  The secure Gateway Layer<br>- The client-facing SDK.<br> Since the Orchestrator and Gateway are developed independently, our task focuses on writing the specific SDK required for the client's technology (engine, framework, or game). This efficiency enables our clear, budget-friendly pricing model:<br>SDK Access: €10 (existing) or >€25 (new development).<br>SDK Support: Problem-solving and new features starting at >€19/month.<br>Subservices Support: Assistance with proxies, servers, and hosting starting at >€29/month."
   }
 ]
