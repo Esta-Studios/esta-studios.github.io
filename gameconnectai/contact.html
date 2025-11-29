@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | GameConnectAI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+  
+  <div class="background-light"></div>
+
+  <div class="contact-wrapper">
+    <div style="width: 100%; max-width: 500px;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">← Back to Home</a>
+        <h1 style="margin-top: 20px;">Start Integration</h1>
+        <p>Tell us about your engine and requirements.</p>
+      </div>
+
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" id="from_name" required placeholder="Your Name" />
+        </div>
+        
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" id="from_email" required placeholder="contact@studio.com" />
+        </div>
+
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea name="message" id="message" rows="5" required placeholder="Tell us about your game engine, language, and what you want the AI to do..."></textarea>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Send Request</button>
+      </form>
+
+      <div id="success-message" class="contact-form" style="display: none; text-align: center;">
+        <h2 style="color: var(--success); margin-bottom: 15px;">Request Sent!</h2>
+        <p>The Esta Studios team will analyze your tech stack and get back to you shortly.</p>
+        <a href="index.html" class="btn" style="margin-top: 20px;">Return Home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 GameConnectAI. A project by <a href="https://esta-studios.github.io" target="_blank">Esta Studios</a>.</p>
+  </footer>
+
+  <script>
+    (function() {
+      // Keep your existing EmailJS ID
+      emailjs.init("uamXzM30A1FE_6rnC"); 
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button');
+      btn.textContent = "Sending...";
+      emailjs.sendForm("service_e1bw55w", "template_a2nd9rd", form)
+        .then(() => {
+          form.style.display = "none";
+          document.getElementById("success-message").style.display = "block";
+        })
+        .catch((error) => {
+          btn.textContent = "Send Request";
+          alert("⚠️ Failed to send. Please check console or try again.");
+          console.error("EmailJS error:", error);
+        });
+    });
+  </script>
+</body>
+</html>

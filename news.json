@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Esta Studios Launches New AI Division",
+    "date": "2023-10-24",
+    "brief": "We are expanding our horizons with a dedicated team for Neural Networks.",
+    "content": "Today marks a significant milestone for Esta Studios. We have officially opened our AI & ANN division, focusing on generative models and predictive analytics. This team will support all internal startups."
+  },
+  {
+    "id": 2,
+    "title": "Tech Conference 2024",
+    "date": "2023-11-01",
+    "brief": "Join us at the upcoming Innovate 2024 conference in Berlin.",
+    "content": "Our CEO will be speaking about the future of low-level optimization in high-level applications. Come visit our booth to see demos of GameConnectAI."
+  },
+  {
+    "id": 3,
+    "title": "Quarterly Report",
+    "date": "2023-12-15",
+    "brief": "Our Q4 results show promising growth across all sectors.",
+    "content": "Despite market volatility, Esta Studios has secured Series A funding for two of our major projects. We are grateful for our partners and investors."
+  }
+]

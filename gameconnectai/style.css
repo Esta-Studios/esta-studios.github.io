@@ -1,0 +1,307 @@
+:root {
+  /* Brand Palette based on Esta Studios Logo */
+  --bg-deep: #05000a; /* Almost black violet */
+  --violet-primary: #7000ff; /* Electric Violet */
+  --violet-glow: #b04aff; /* Lighter Glow */
+  --violet-dim: #2a0a4a;
+  
+  /* Text */
+  --text-main: #ffffff;
+  --text-muted: #cbb3ff;
+  
+  /* UI Elements */
+  --glass-bg: rgba(20, 10, 35, 0.6);
+  --glass-border: rgba(112, 0, 255, 0.15);
+  --card-hover: rgba(112, 0, 255, 0.25);
+  --success: #00ff9d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- MOVING LIGHT BACKGROUND ANIMATION --- */
+.background-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, rgba(112, 0, 255, 0.15), transparent 60%);
+  opacity: 0.8;
+  animation: moveLight 15s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes moveLight {
+  0% { transform: translate(-30%, -20%) scale(1); }
+  50% { transform: translate(20%, 10%) scale(1.2); }
+  100% { transform: translate(-10%, 30%) scale(0.9); }
+}
+
+/* --- TYPOGRAPHY & LAYOUT --- */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: var(--violet-primary);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+}
+
+.btn:hover {
+  background: var(--violet-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(112, 0, 255, 0.6);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.2s;
+  text-shadow: 0 0 30px rgba(112, 0, 255, 0.5);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero .btn {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.8s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- SECTIONS --- */
+section {
+  padding: 100px 0;
+}
+
+/* Tech Stack Grid (Architecture) */
+.tech-stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.tech-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 30px;
+  border-radius: 16px;
+  width: 300px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--violet-primary);
+}
+
+.tech-arrow {
+  font-size: 2rem;
+  color: var(--violet-primary);
+}
+
+/* Why Us Grid */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  border-top: 1px solid var(--glass-border);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.feature-card h3 {
+  color: var(--text-main);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+/* Pricing Section */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.price-card {
+  background: var(--violet-dim);
+  border: 1px solid var(--glass-border);
+  padding: 40px 30px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.price-card:hover {
+  border-color: var(--violet-primary);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.price-tag {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--violet-glow);
+  margin: 20px 0;
+}
+
+.price-sub {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* Contact Page Specifics */
+.contact-wrapper {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+
+.contact-form {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  backdrop-filter: blur(12px);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--glass-border);
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--violet-primary);
+}
+
+/* Footer */
+footer {
+  background: black;
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #1a1a1a;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+footer a {
+  color: var(--violet-primary);
+  text-decoration: none;
+}
+
+/* Visibility classes for JS observer */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .tech-arrow { transform: rotate(90deg); margin: 10px 0; }
+  .tech-stack { flex-direction: column; }
+}

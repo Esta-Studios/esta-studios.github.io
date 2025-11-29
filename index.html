@@ -1,61 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="index_style.css">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Esta Corp</title>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Esta Corporation</h1>
-            <nav>
-                <h2>Navigation</h2>
-                <p><a href="about.html">About us</a> | <a href="last_news.html">Last updates</a></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esta Studios | Innovating the Future</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="ES_LV.png" alt="Esta Studios Logo" class="logo-img">
+                <span class="logo-text">ESTA STUDIOS</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#invite" class="btn btn-primary">Join Us</a></li>
+                </ul>
             </nav>
         </div>
-        <div class="welcome_line">
-            <h2>Welcome to main page!</h2>
+    </header>
+
+    <section id="about" class="section hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <h1>Building the Future, Bit by Bit</h1>
+            <p>From low-level kernel development to complex AI & ANN problem solving. We are a startup studio turning bold ideas into technical realities.</p>
         </div>
-        <div class="blog_page">
-            <div class="blog_section">
-                <h2>Our products</h2>
-                <p>We have developed and produced a lot of software and hardware, most common you can see down below.</p>
-            </div>
-            <section class="options_list">
-                <div class = "option">
-                    <h3>CD Driver</h3>
-                    <p>Our CD driver can work in 3 different mods: fast, normal, encrypting. If data losses are okay, you can use first one. Otherway ecncryption mode will surely recover all saved info. If you need something not to slow, but without big losses, normal mode is your perfect choice!</p>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+
+            <div class="gallery-wrapper">
+                <button class="nav-btn prev-btn" id="proj-prev" disabled>&#10094;</button>
+
+                <div class="gallery-container" id="projects-container">
+                    <a href="gameconnectai/index.html" target="_blank" class="card project-card">
+                        <div class="card-image">
+                            <img class="project-image" src="gameconnectai/GameConnectAI_Logo.jpg" alt="GameConnectAI Logo">
+                        </div>
+                        <div class="card-content">
+                            <h3>GameConnectAI</h3>
+                            <p>Revolutionizing multiplayer matchmaking using advanced neural networks.</p>
+                        </div>
+                    </a>
+
                 </div>
-                <div class = "option">
-                    <h3>Silent House Benchmark</h3>
-                    <p>We have been developing this game for years and here are the results: this game now can not only involve you as a player, but also as a developer. With help of it you can test limits of your system and bunch of other things!</p>
-                </div>
-                <div class = "option">
-                    <h3>Absorption Tech</h3>
-                    <p>Despite it's still in develop, we anounce revolutionary product: Absorption Tech. With help of it you can visit any virtual dimention you only want.</p>
-                    <p>ATTENTION: this product is only in TEST mode. The company is not responsible for your actions with it.</p>
-                </div>
-                <div class = "option">
-                    <h3>IN PROGRESS</h3>
-                    <p>Information is hidden till first teaser.<br>Common access: 06.2025<br>Insider access:01.2025<br>If you have any problems with access after your date group have passed, please contact with my provider: estacorporationcontact@gmail.com</p>
-                </div>
-            </section>
-            <div class="blog_section">
-                <h2>Developer info</h2>
-                <p>If you want to join us, please send your request to our common database. We check it every week looking for someone, who would be perfect for our projects! Wish you luck!</p>
-            </div>
-            <div class="blog_section">
-                <h2>Our Logo</h2>
-                <img src="https://media.licdn.com/dms/image/v2/C560BAQFdvoP2QNqUOA/company-logo_200_200/company-logo_200_200/0/1630565893755/esta_construction_logo?e=2147483647&v=beta&t=IWcOXHR37V1MIBU-1IABNnjeJD9zqsI-RsateSdbP6g" alt="EstaLogo">
-                <p>We are glad, that you use our products.</p>
+
+                <button class="nav-btn next-btn" id="proj-next" disabled>&#10095;</button>
             </div>
         </div>
-        <div class="bottom">
-            <footer>
-                <p>Current page:<a href="index.html">Main page</a></p>
-                <p>Esta Corporation, 1994-2025, all rights reserved.</p>
-            </footer>
+    </section>
+
+    <section id="invite" class="section invite-section">
+        <div class="container text-center">
+            <h2>We Are Looking For Enthusiasts!</h2>
+            <p>We are always searching for enthusiastic employees for all of our projects. If you live code and dream in algorithms, we want you.</p>
+            <a href="apply.html" class="btn btn-primary btn-large">Join the Team</a>
         </div>
-    </body>
+    </section>
+
+    <section id="news" class="section">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div class="gallery-wrapper">
+                <button class="nav-btn prev-btn" id="news-prev">&#10094;</button>
+                <div class="gallery-container" id="news-container"></div>
+                <button class="nav-btn next-btn" id="news-next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>ESTA STUDIOS</h3>
+                <p>&copy; 2025 All Rights Reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="www.linkedin.com/company/estastudios/">LinkedIn</a>
+                <!--
+                <a href="#">Twitter</a>
+                <a href="#">Youtube</a>
+                <a href="#">Instagram</a>
+                -->
+                <a href="https://github.com/Esta-Studios">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="news-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-date" class="modal-date">Date</p>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>

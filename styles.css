@@ -1,0 +1,424 @@
+:root {
+    --primary-blue: #0072CE; /* Based on Esta Logo */
+    --dark-navy: #0B1E33;    /* Based on Esta Logo Text */
+    --text-dark: #333333;
+    --text-light: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- UNIVERSAL UTILITY CLASSES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-navy);
+    margin-bottom: 50px;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.text-center { text-align: center; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-navy);
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* --- HEADER --- */
+.main-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--dark-navy);
+    letter-spacing: -1px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.main-nav a {
+    font-weight: 600;
+    color: var(--dark-navy);
+}
+
+.main-nav a:hover { color: var(--primary-blue); }
+
+/* --- HERO SECTION (About) --- */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Add your background image below */
+    background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    margin-top: 70px; /* Offset for fixed header */
+}
+
+/* Dark Overlay */
+.hero-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 30, 51, 0.7); /* Dark Navy with opacity */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* --- GALLERIES (Projects & News) --- */
+.gallery-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.gallery-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    width: 100%;
+    /* Hide scrollbar */
+    scrollbar-width: none; 
+}
+.gallery-container::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.nav-btn:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: default;
+}
+
+/* --- CARDS (Universal) --- */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    min-width: 300px;
+    max-width: 300px;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    flex-shrink: 0;
+    display: block; /* For anchor tags */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-image .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the area without stretching */
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: var(--dark-navy);
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Project Specifics */
+.placeholder-icon {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* News Specifics */
+.news-date {
+    font-size: 0.8rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* --- INVITE SECTION --- */
+.invite-section {
+    background: var(--dark-navy);
+    color: white;
+}
+
+.invite-section h2 {
+    margin-bottom: 20px;
+}
+.invite-section p {
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background: #05101a;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-socials a {
+    color: #aaa;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover { color: var(--primary-blue); }
+
+/* --- MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: black; }
+
+.modal-date {
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin: 10px 0 20px 0;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; padding: 10px; }
+    .main-nav ul { gap: 15px; margin-top: 10px; }
+    .hero-content h1 { font-size: 2.5rem; }
+}
+
+/* Form Specific Styles */
+.form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto; /* Center the form */
+}
+
+.form-intro {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-navy);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+/* Button States */
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none; /* Remove hover float effect */
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--dark-navy);
+    color: var(--dark-navy);
+    padding: 8px 20px;
+}
+
+.btn-secondary:hover {
+    background: var(--dark-navy);
+    color: white;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.error-msg {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+}
