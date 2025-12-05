@@ -468,6 +468,13 @@ ul { list-style: none; }
     transform: translateY(-3px);
 }
 
+.socials-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+}
+
 /* --- FORMS --- */
 .form-wrapper {
     background: rgba(6, 23, 49, 0.6); /* Glassmorphism */

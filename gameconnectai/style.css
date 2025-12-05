@@ -61,6 +61,7 @@ h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   background: linear-gradient(90deg, #fff, var(--text-muted));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -233,6 +234,192 @@ section {
   display: grid;
   place-items: center;
   padding: 40px;
+}
+
+/* --- ROADMAP SECTION --- */
+.roadmap-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Vertical Line */
+.roadmap-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50px; /* Aligns line with dots */
+  width: 2px;
+  background: rgba(112, 0, 255, 0.2);
+  z-index: 0;
+}
+
+.roadmap-step {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 80px; /* Space for dot */
+  z-index: 1;
+}
+
+/* The Dot */
+.roadmap-step::before {
+  content: '';
+  position: absolute;
+  left: 41px; /* Center on line (50px line - 9px half width) */
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-deep);
+  border: 2px solid var(--text-muted);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* STATES */
+
+/* Completed: Solid Violet */
+.roadmap-step.completed::before {
+  background: var(--violet-primary);
+  border-color: var(--violet-primary);
+  box-shadow: 0 0 15px var(--violet-primary);
+}
+.roadmap-step.completed h3 {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* In Progress: Pulsing Glow */
+.roadmap-step.in-progress::before {
+  background: var(--bg-deep);
+  border-color: #fff;
+  box-shadow: 0 0 20px var(--violet-glow);
+  animation: pulseDot 2s infinite;
+}
+.roadmap-step.in-progress h3 {
+  color: #fff;
+  text-shadow: 0 0 10px var(--violet-primary);
+}
+
+/* Upcoming: Dimmed */
+.roadmap-step.upcoming::before {
+  border-color: rgba(255,255,255,0.1);
+}
+.roadmap-step.upcoming h3 {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* TEXT CONTENT */
+.roadmap-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.roadmap-desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: all 0.4s ease;
+  transform: translateY(-10px);
+}
+
+/* HOVER EFFECT */
+.roadmap-step:hover .roadmap-desc {
+  max-height: 100px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 10px;
+}
+
+.roadmap-step:hover::before {
+  transform: scale(1.3);
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(112, 0, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(112, 0, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(112, 0, 255, 0); }
+}
+
+/* --- REDESIGNED FOOTER --- */
+.main-footer {
+  background: #020205;
+  border-top: 1px solid var(--glass-border);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Social Icons container */
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-muted);
+  transition: 0.3s;
+}
+
+.social-btn:hover {
+  background: var(--violet-dim);
+  border-color: var(--violet-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(112,0,255,0.2);
+}
+
+.social-btn:hover svg {
+  fill: #fff;
+}
+
+/* Parent Company Link Customization */
+.parent-link {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: transparent;
+  background: linear-gradient(90deg, #fff, var(--violet-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(112,0,255,0.3);
+  padding-bottom: 2px;
+  transition: 0.3s;
+}
+
+.parent-link:hover {
+  border-bottom-color: var(--violet-primary);
+  text-shadow: 0 0 15px rgba(112,0,255,0.5);
 }
 
 .contact-form {
