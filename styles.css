@@ -31,12 +31,125 @@
     box-sizing: border-box;
 }
 
+/* --- NEW REBRANDING STYLES --- */
+
+/* 1. Header slide-in animation */
+@keyframes slideDownHeader {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+.main-header {
+    animation: slideDownHeader 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 3. Vertical Interactive Roadmap */
+.vertical-roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.roadmap-step {
+    display: flex;
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0.6;
+    transform: scale(0.98);
+}
+.roadmap-step:hover {
+    opacity: 0.8;
+}
+/* Active state triggers unique switching visual */
+.roadmap-step.active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 20px rgba(19, 90, 167, 0.3);
+}
+.roadmap-step-num {
+    background: rgba(19, 90, 167, 0.1);
+    color: var(--blue-bright);
+    font-size: 1.8rem;
+    font-weight: 800;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+}
+.roadmap-step.active .roadmap-step-num {
+    background: var(--blue-primary);
+    color: white;
+}
+.roadmap-step-content {
+    padding: 25px 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.roadmap-step-content h3 {
+    color: white;
+    font-size: 1.4rem;
+    transition: var(--transition);
+    margin: 0;
+}
+.roadmap-step.active .roadmap-step-content h3 {
+    margin-bottom: 10px;
+    color: var(--blue-bright);
+}
+.roadmap-step-content .step-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    margin: 0;
+}
+.roadmap-step.active .step-desc {
+    max-height: 150px; /* Expands to show text */
+    opacity: 1;
+}
+
+/* 4. Infinite Footer Scroll Fix */
+/* --- SMOOTH TRANSITIONS & SCROLL ANIMATIONS --- */
+
+/* Smooth scrolling for anchor links (e.g., clicking "About" or "Road Map") */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth fade-in when loading or switching to a new page */
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: var(--text-main);
-    background-color: var(--bg-body);
-    overflow-x: hidden;
+    animation: pageFadeIn 0.5s ease-in-out forwards;
+    background-color: #020b1a;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Viewport Scroll Reveal Animation for Text */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+/* This class is added by JavaScript when the element enters the viewfield */
+.reveal-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Custom Scrollbar for Dark Mode */
@@ -155,7 +268,7 @@ ul { list-style: none; }
     width: 100%;
     top: 0;
     z-index: 1000;
-    height: 80px;
+    height: 120px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -392,7 +505,136 @@ ul { list-style: none; }
     color: var(--navy-mid);
     text-shadow: 0 0 10px rgba(22, 59, 108, 0.5);
 }
+/* --- CYCLED BORDERLESS GALLERY & 3D CARDS --- */
+.roles-gallery-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    z-index: 2;
+    /* Creates a beautiful fade effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
 
+.roles-gallery-track {
+    display: flex;
+    gap: 25px;
+    width: max-content;
+    /* 35s controls the speed. Linear keeps it consistent. Infinite loops it. */
+    animation: scrollGallery 35s linear infinite;
+}
+
+.roles-gallery-track:hover {
+    animation-play-state: paused; /* Pauses the cycle when user hovers */
+}
+
+.gallery-group {
+    display: flex;
+    gap: 25px;
+}
+
+@keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    /* Shifts exactly 50% of the track + half the gap to perfectly loop */
+    100% { transform: translateX(calc(-50% - 12.5px)); } 
+}
+
+.role-card {
+    background: rgba(6, 23, 49, 0.5); /* Slightly more transparent */
+    backdrop-filter: blur(10px);
+    border: none; /* BORDERLESS */
+    border-radius: 12px;
+    padding: 30px 25px;
+    width: 320px; /* Fixed width for the gallery */
+    flex-shrink: 0;
+    text-align: left;
+    transition: box-shadow 0.3s ease, background 0.3s ease; 
+    transform-style: preserve-3d; 
+    will-change: transform;
+}
+
+.role-card:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 25px rgba(27, 162, 219, 0.25);
+    background: rgba(6, 23, 49, 0.8); /* Darkens slightly to pop out */
+}
+
+.role-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    transform: translateZ(30px); 
+}
+
+.role-card h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    transform: translateZ(20px); 
+}
+
+.role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform: translateZ(15px); 
+}
+
+.tag {
+    background: rgba(27, 162, 219, 0.05);
+    border: 1px solid rgba(27, 162, 219, 0.3);
+    color: var(--blue-bright);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.tag:hover {
+    background: var(--blue-primary);
+    color: white;
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 10px var(--blue-bright);
+}
+/* --- ROLE DETAILS MODAL --- */
+/* Make gallery tags indicate they can be clicked */
+.interactive-tag {
+    cursor: pointer !important;
+}
+
+.role-details-box {
+    text-align: left;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.role-details-box h2 {
+    font-size: 2rem;
+    color: white;
+}
+
+.role-details-box h4 {
+    color: var(--blue-bright);
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.role-details-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.role-details-box li {
+    margin-bottom: 6px;
+}
 /* News Specifics */
 .news-date {
     font-size: 0.8rem;
@@ -583,6 +825,139 @@ ul { list-style: none; }
     font-size: 0.9rem;
     border: 1px solid rgba(27, 162, 219, 0.2);
 }
+
+/* --- CUSTOM DROPDOWN (apply.html) --- */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-display {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-muted); /* Placeholder color */
+}
+
+.dropdown-display::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: var(--blue-bright);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-options.show ~ .dropdown-display::after, /* If you place display below options */
+.custom-dropdown.active .dropdown-display::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--navy-deep);
+    border: 1px solid var(--blue-bright);
+    border-radius: 6px;
+    margin-top: 5px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dropdown-options.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.dropdown-options label {
+    display: flex !important; /* Override default form-group label */
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin: 0 !important;
+    cursor: pointer;
+    color: var(--text-main) !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.dropdown-options label:hover {
+    background-color: rgba(19, 90, 167, 0.3);
+}
+
+.dropdown-group {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    color: var(--blue-bright);
+    background: rgba(0,0,0,0.3);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.dropdown-options input[type="checkbox"] {
+    accent-color: var(--blue-primary);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* --- SUCCESS NOTIFICATION MODAL --- */
+.success-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 11, 26, 0.7); /* Dark semi-transparent background */
+    backdrop-filter: blur(12px); /* Blurs everything behind it */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.success-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-box {
+    background: var(--navy-deep);
+    border: 1px solid var(--blue-bright);
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(19, 90, 167, 0.5);
+    max-width: 500px;
+    transform: translateY(40px);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.success-overlay.active .success-box {
+    transform: translateY(0);
+}
+
+.success-box h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    text-shadow: 0 0 15px rgba(27, 162, 219, 0.6);
+}
+
+.success-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.mt-20 { margin-top: 20px; }
 
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(30px);}

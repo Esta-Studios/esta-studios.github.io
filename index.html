@@ -18,8 +18,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#news">News</a></li>
+                    <li><a href="#roadmap">Road Map</a></li>
                     <li><a href="#invite" class="btn btn-primary">Join Us</a></li>
                 </ul>
             </nav>
@@ -34,56 +33,49 @@
         </div>
     </section>
 
-    <section id="projects" class="section bg-light">
+    <section id="roadmap" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Our Projects</h2>
-
-            <div class="gallery-wrapper">
-                <button class="nav-btn prev-btn" id="proj-prev" disabled>&#10094;</button>
-
-                <div class="gallery-container" id="projects-container">
-                    <a href="gameconnectai/index.html" class="card project-card">
-                        <div class="card-image">
-                            <img class="project-image" src="gameconnectai/GameConnectAI_Logo.jpg" alt="GameConnectAI Logo">
-                        </div>
-                        <div class="card-content">
-                            <h3>GameConnectAI</h3>
-                            <p>Quick connection service of any AI for small and medium-sized game studios.</p>
-                        </div>
-                    </a>
-                    <a href="thewill/index.html" class="card project-card">
-                        <div class="card-image">
-                            <img class="project-image" src="thewill/TW_L1.png" alt="The Will">
-                        </div>
-                        <div class="card-content">
-                            <h3>The Will</h3>
-                            <p>Action RTS in casual style. In production.</p>
-                        </div>
-                    </a>
-
+            <h2 class="section-title">Road Map</h2>
+            
+            <div class="vertical-roadmap" id="roadmap-container">
+                <div class="roadmap-step" data-step="1">
+                    <div class="roadmap-step-num">01</div>
+                    <div class="roadmap-step-content">
+                        <h3>Structuring Organisation</h3>
+                        <p class="step-desc">Refining our core identity, streamlining internal processes, and preparing the groundwork for upcoming scalable solutions.</p>
+                    </div>
                 </div>
 
-                <button class="nav-btn next-btn" id="proj-next" disabled>&#10095;</button>
+                <div class="roadmap-step active" data-step="2">
+                    <div class="roadmap-step-num">02</div>
+                    <div class="roadmap-step-content">
+                        <h3>Preparing Foundation</h3>
+                        <p class="step-desc">Developing the projects base, gathering core team members, setting up development processes.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step" data-step="3">
+                    <div class="roadmap-step-num">03</div>
+                    <div class="roadmap-step-content">
+                        <h3>Projects Launch</h3>
+                        <p class="step-desc">Full deployment of our first developed project, opening up early access for other ones and expanding team with new members.</p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
     <section id="invite" class="section invite-section">
         <div class="container text-center">
-            <h2>We Are Looking For Enthusiasts!</h2>
-            <p>We are always searching for enthusiastic employees for all of our projects. If you live code and dream in algorithms, we want you.</p>
-            <a href="apply.html" class="btn btn-primary btn-large">Join the Team</a>
-        </div>
-    </section>
-
-    <section id="news" class="section">
-        <div class="container">
-            <h2 class="section-title">Latest News</h2>
-            <div class="gallery-wrapper">
-                <button class="nav-btn prev-btn" id="news-prev">&#10094;</button>
-                <div class="gallery-container" id="news-container"></div>
-                <button class="nav-btn next-btn" id="news-next">&#10095;</button>
+            <h2 class="section-title">We Are Looking For Enthusiasts!</h2>
+            <p style="margin-bottom: 50px; color: var(--text-muted); max-width: 650px; margin-left: auto; margin-right: auto;">We are always searching for enthusiastic employees for all of our projects. Lack of experience is not a barrier: if you live code and dream in algorithms, we want you.</p>
+            
+            <div class="roles-gallery-viewport">
+                <div class="roles-gallery-track" id="roles-gallery-track"></div>
             </div>
+
+            <a href="apply.html" class="btn btn-primary btn-large" style="margin-top: 40px;">Apply Now</a>
         </div>
     </section>
 
@@ -91,13 +83,10 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h3>ESTA STUDIOS</h3>
-                <p>&copy; 2025 All Rights Reserved.</p>
+                <p>&copy; 2026 All Rights Reserved.</p>
             </div>
             <div class="footer-socials">
                 <a href="https://www.linkedin.com/company/estastudios/" target="_blank"><img class="socials-icon" src="gallery/linked-in-icon.png" alt="LinkedIn"></a>
-                <!--
-                <a href="#">TikTok</a>
-                -->
                 <a href="https://youtube.com/@estastudios?si=_t-cdLyqq1Y0LxoG" target="_blank"><img class="socials-icon" src="gallery/youtube-logo.png" alt="YouTube"></a>
                 <a href="https://www.instagram.com/esta.studios/?utm_source=ig_web_button_share_sheet" target="_blank"><img class="socials-icon" src="gallery/instagram-logo.png" alt="Instagram"></a>
                 <a href="https://github.com/Esta-Studios" target="_blank"><img class="socials-icon" src="gallery/github-icon.png" alt="GitHub"></a>
@@ -105,15 +94,29 @@
         </div>
     </footer>
 
-    <div id="news-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title">Title</h2>
-            <p id="modal-date" class="modal-date">Date</p>
-            <div id="modal-body"></div>
+    <div id="role-modal" class="success-overlay">
+        <div class="success-box role-details-box text-left">
+            <span class="close-modal" id="close-role-modal">&times;</span>
+            <div class="modal-date" id="role-modal-category">Category</div>
+            <h2 id="role-modal-title" style="margin-bottom: 20px;">Role Title</h2>
+            
+            <p id="role-modal-desc" style="color: white; margin-bottom: 25px; font-size: 1.05rem;">Description goes here.</p>
+            
+            <h4>Requirements:</h4>
+            <ul id="role-modal-reqs">
+                <li>Requirement 1</li>
+            </ul>
+
+            <h4>Possible Tasks:</h4>
+            <ul id="role-modal-tasks">
+                <li>Task 1</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 35px;">
+                <a href="apply.html" class="btn btn-primary btn-large">Apply For This Position</a>
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

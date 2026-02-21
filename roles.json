@@ -1,0 +1,136 @@
+[
+  {
+    "group": "Projects",
+    "category": "Active Projects",
+    "icon": "🚀",
+    "items": [
+      {
+        "value": "TheWill", 
+        "label": "The Will (2D RTS)",
+        "description": "Our flagship 2D Action Real-Time Strategy game focusing on dynamic global battle management and deep tactical combat control.",
+        "requirements": ["Passion for the RTS genre", "Basic understanding of Unity Engine and C# aspects"],
+        "tasks": ["Designing tactical&strategical AI behavior", "Solving multiplayer problems", "Implementing VFX and shaders", "Unificate multiplayer and singleplayer core logic implementations."]
+      },
+      {
+        "value": "TheSmuggle", 
+        "label": "The Smuggle (Tycoon)",
+        "description": "A simple economic and hide-and-seek simulation game where players build their trading empires by managing their resources and controlling secretive .",
+        "requirements": ["Basic understanding of tycoon mechanics", "Basic understanding of Unity Engine and C# aspects"],
+        "tasks": ["No specified tasks yet"]
+      },
+      {
+        "value": "MemoryBucket", 
+        "label": "Memory Bucket (C++ Framework)",
+        "description": "An open-source, high-performance C++ memory management framework designed to eliminate allocation bottlenecks in demanding applications.",
+        "requirements": ["Deep understanding of computer architecture", "Experience with pointer arithmetic", "Familiarity with memory fragmentation"],
+        "tasks": ["Writing custom memory allocators", "Profiling and benchmarking performance", "Writing robust unit tests"]
+      }
+    ]
+  },
+  {
+    "group": "Roles",
+    "category": "C++ Engineering",
+    "icon": "⚙️",
+    "items": [
+      {
+        "value": "CppDev", "label": "C++ General Developer",
+        "description": "A versatile core engineer responsible for building robust backend systems, high-performance algorithms, and engine integrations.",
+        "requirements": ["C++ knowledge (since 11 standard)", "Understanding of OOP and Data Structures"],
+        "tasks": ["Solving architectural problems", "Building algorythms"]
+      },
+      {
+        "value": "CppEmbDev", "label": "C++ Embedded Developer",
+        "description": "A specialist focused on low-level hardware interactions, writing code that runs closer to the metal for maximum efficiency.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "CppQtDev", "label": "C++ Qt Developer",
+        "description": "A UI/UX engineering role focused on building responsive, cross-platform desktop tools and applications using the Qt framework.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "CppBoostDev", "label": "C++ Boost Developer",
+        "description": "An algorithmic specialist heavily utilizing the Boost libraries to solve complex mathematical, networking, or structural problems.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "CppAIDev", "label": "C++ AI Developer",
+        "description": "A low-level AI engineer focused on translating theoretical Neural Networks and Machine Learning models into highly optimized C++ code.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      }
+    ]
+  },
+  {
+    "group": "Roles",
+    "category": "Unity Development",
+    "icon": "👾",
+    "items": [
+      {
+        "value": "UnityC#", "label": "Unity General Developer",
+        "description": "A core gameplay programmer responsible for bringing game designs to life using Unity and C#.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "UnityEnvDev", "label": "Unity Multiplayer Developer",
+        "description": "A networking specialist using frameworks like Mirror to synchronize complex game states across multiple clients.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "UnityVisualsDev", "label": "Unity Visuals (VFX/Shaders)",
+        "description": "A technical artist role focused on making our projects look stunning using Unity's Shader Graph, VFX Graph, and rendering pipelines.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "UnityAIDev", "label": "Unity AI Trainer",
+        "description": "A specialist using tools like Unity ML-Agents to train intelligent, unpredictable, and challenging NPCs.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      }
+    ]
+  },
+  {
+    "group": "Roles",
+    "category": "Python Development",
+    "icon": "🐍",
+    "items": [
+      {
+        "value": "PythonAIDev", "label": "Python AI Developer",
+        "description": "A data and modeling specialist focused on designing, training, and testing complex Neural Networks before they are deployed to production.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      }
+    ]
+  },
+  {
+    "group": "Roles",
+    "category": "Visuals & Audio",
+    "icon": "🎨",
+    "items": [
+      {
+        "value": "2DArtist", "label": "2D Artist",
+        "description": "A creative visionary responsible for the visual identity, concept art, and final in-game 2D assets of our projects.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "SFX", "label": "Sound Designer (SFX)",
+        "description": "An audio engineer dedicated to creating immersive soundscapes, impactful feedback noises, and satisfying ambient effects.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      },
+      {
+        "value": "Music", "label": "Musician",
+        "description": "A composer responsible for writing memorable, emotional, and dynamic soundtracks that elevate the player's experience.",
+        "requirements": ["Not specified yet."],
+        "tasks": ["No specified tasks yet."]
+      }
+    ]
+  }
+]

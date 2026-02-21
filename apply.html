@@ -11,16 +11,15 @@
     </script>
     <script type="text/javascript">
        (function(){
-          // You will paste your actual Public Key here later (See Step 3 instructions below)
           emailjs.init("uamXzM30A1FE_6rnC");
        })();
     </script>
 </head>
-<body class="bg-light">
-
+<body style="background-color: #020b1a;">
     <header class="main-header">
         <div class="container header-container">
             <div class="logo">
+                <img src="gallery/ES_LV.png" alt="Esta Studios Logo" class="logo-img">
                 <a href="index.html" class="logo-link">
                     <span class="logo-text">ESTA STUDIOS</span>
                 </a>
@@ -55,11 +54,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="project">Which project interests you?</label>
-                        <select id="project" class="form-control">
-                            <option value="General Application">General Application (Any)</option>
-                            <option value="GameConnectAI">GameConnectAI</option>
-                            </select>
+                        <label>Which project or role interests you? Select all that apply.</label>
+                        <div class="custom-dropdown" id="custom-dropdown">
+                            <div class="dropdown-display form-control" id="dropdown-display">Select options...</div>
+                            <div class="dropdown-options" id="dropdown-options"></div>
+                        </div>
+                        <input type="hidden" id="project" required>
                     </div>
 
                     <div class="form-group">
@@ -79,10 +79,18 @@
 
     <footer class="main-footer">
         <div class="container text-center">
-            <p>&copy; 2025 Esta Studios.</p>
+                <h3>ESTA STUDIOS</h3>
+                <p>&copy; 2026 All Rights Reserved.</p>
         </div>
     </footer>
-
+    <div id="success-modal" class="success-overlay">
+        <div class="success-box text-center">
+            <h2>Application Sent!</h2>
+            <p>Congratulations! Your application has been successfully delivered to Esta Studios.</p>
+            <p>Please wait for our team to review it. We will get back to you shortly.</p>
+            <a href="index.html" class="btn btn-primary btn-large mt-20">Return to Home</a>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
